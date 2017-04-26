@@ -1,0 +1,90 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          xfero-server
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# chkconfig:         2345 99 01
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: XFERO Server
+# Description:       /Xfero/ Server
+### END INIT INFO
+
+# Copy this file as /etc/init.d/xfero-server
+# Create symlink in /etc/rc3.d as follows: ln -s ../init.d/xfero-server S99xfero-server
+# Create symlink in /etc/rc5.d as follows: ln -s ../init.d/xfero-server S99xfero-server
+
+# Replace the value of INSTALL_ROOT value from below with the path of.
+# your XFERO Server installation.
+
+INSTALL_ROOT="/usr/local/bin/FTH/lib/python3.3/site-packages//xfero/"
+
+# RedHat usage:
+#  * enable service on all init levels:
+#    chkconfig xfero-server --add
+#  * enable service on selected init levels:
+#    chkconfig xfero-server on --level 2,3,5
+#  * start the service
+#    service xfero-server start
+#       
+#  * stop the service
+#    service xfero-server stop
+#
+# Ubuntu/Debian usage:
+#  * enable service on all init levels:
+#    sudo update-rc.d xfero-server defaults
+#  * enable service on selected init levels:
+#    sudo update-rc.d xfero-server start 20 2 3 4 5 . stop 80 0 1 6 .
+#  * start the service
+#    sudo service xfero-server start
+#  * stop the service
+#    sudo service xfero-server stop
+
+# Source the functions library
+. /etc/rc.d/init.d/functions
+
+SERVICE_NAME="xfero-server"
+PID_FILE="/var/run/xfero-server.pid"
+SOURCE="/usr/local/bin/XFERO/bin/activate"
+
+export XFERO_CONFIG_DIR=/TickboxConsulting/XFERO/conf
+export XFERO_CONFIG=$XFERO_CONFIG_DIR/'XFERO_config.ini
+
+start_xfero_scheduler() {
+    echo -n "Starting ${SERVICE_NAME} services: "
+    source ${SOURCE}
+    cd ${INSTALL_ROOT}
+    su - fts -c "python scheduler.py &"
+    echo $! > $PID_FILE
+    echo "'XFERO Scheduler started"
+}
+
+
+stop_xfero_scheduler() {
+    echo -n "Shutting down ${SERVICE_NAME} services: "
+    source ${SOURCE}
+    cd ${INSTALL_ROOT}
+    su - fts -c "python stop_XFERO.py"
+    wait
+    echo "'XFERO Server stopped"
+    kill `cat $PID_FILE`
+    echo .
+}
+
+
+case "$1" in
+    start)
+        start_xfero_scheduler
+    ;;
+    stop)
+        stop_xfero_scheduler
+    ;;
+    restart)
+        stop_xfero_scheduler
+        start_xfero_scheduler
+    ;;
+    *)
+        echo "Usage: ${SERVICE_NAME} {start|stop|restart}"
+        exit 1
+    ;;
+esac
