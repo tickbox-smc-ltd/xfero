@@ -1,10 +1,10 @@
 # xfero
 A practical File Transfer Orchestration solution for business
 
-## Why xfero?
+## Why XferO?
 **THE MISSING LINK IN BUSINESS FILE TRANSFER SERVICES**
 
-Xfero is the complete orchestration framework for business file transfer services with a mission to simplify complex file transfer integration while giving business users the ability to manage configuration rather than relying on techies.
+XferO is a complete orchestration framework that simplifies complex file transfer integration for business file transfer services whilst giving the business community the ability to manage these services without having to engage with their technical department.
 
 ## Whats different?
 The primary distinguishing features of xfero are:
