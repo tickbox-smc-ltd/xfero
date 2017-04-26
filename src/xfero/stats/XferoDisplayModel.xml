@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CFTDisplayFilter id='xferocustom' title_align='left' mode='line'>
+    <Fields>
+        <!-- 'Obfuscated' timestamp -->
+        <Field id='IDT'     title='IDT - Obfuscated Timestamp'     empty=''     na=''  />                                               
+        <!-- Unique ID -->
+        <Field id='IDTU'    title='IDTU - Unique ID'               empty=''     na=''  />
+        <!-- ID specified by calling application/user -->                                               
+        <Field id='IDA'     title='IDA - Calling App ID'           empty=''     na=''  />                                               
+        <!-- Partner sending or receiving the file -->
+        <Field id=PART'     title='PARTNER'                        empty=''     na=''  />
+        <!-- Direction of transfer - SEND or RECV -->                                               
+        <Field id='DIRECT'  title='DIRECTION'                      empty=''     na=''  />
+        <!-- TYPE of transfer - FILE = file transfer -->                                               
+        <Field id='TYPE'    title='TYPE'                           empty=''     na=''  />   
+        <!-- Current transfer status code -->                                            
+        <Field id='STATE'   title='TRANSFER STATUS CODE'           empty=''     na='' minlength='1' maxlength='1' />      
+        <!-- Local path to file -->
+        <Field id='FNAME'   title='FNAME - (Local Path)'           empty=''     na=''  />  
+        <!-- Path on remote host -->                                             
+        <Field id='NFNAME'  title='NFNAME - (Remote Path)'         empty=''     na=''  />                                               
+        <!-- Time at start of transfer -->
+        <Field id='TIMEB'   title='TIMEB - Xfer start time'        empty=''     na='' minlength='10' maxlength='10' />    
+        <!-- Date at start of transfer -->
+        <Field id='DATEB'   title='DATEB - Xfer start date'        empty=''     na='' minlength='10' maxlength='10' />  
+        <!-- Time at end of transfer -->  
+        <Field id='TIMEE'   title='TIMEE - Xfer end time'          empty=''     na='' minlength='10' maxlength='10' /> 
+        <!-- Date at end of transfer -->   
+        <Field id='DATEE'   title='DATEE - Xfer end date'          empty=''     na='' minlength='10' maxlength='10' />    
+        <!-- Internal error code -->
+        <Field id='DIAGI'   title='DIAGI - Internal Error code'    empty=''     na=''  />    
+        <!-- Protocol-level error code -->                                            
+        <Field id='DIAGP'   title='DIAGP - Protocol Error code'    empty=''     na=''  /> 
+        <!-- Transfer ID on remote host -->                                                
+        <Field id='IDTD'    title='IDTD - Remote host transfer id' empty=''     na=''  />  
+        <!-- Miscellaneous comments -->                                              
+        <Field id='MSG'     title='MSG - Message'                  empty=''     na=''  />                                                
+    </Fields>
+</CFTDisplayFilter>
