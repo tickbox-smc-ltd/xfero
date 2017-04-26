@@ -9,7 +9,7 @@ XferO is a complete orchestration framework that simplifies complex file transfe
 ## Whats different?
 The primary distinguishing features of xfero are:
 
-- Xfero puts the business user in charge. Providing a simple GUI for configuration of transfer routing.
+- Xfero puts the business community in charge. Providing a simple GUI for configuration of transfer routing.
 - It is agnostic of File Transfer products and can support any File Transfer protocol/product.
 - Workflow for Orchestration which implements the following functionality:
   - A variety of file name transformations
